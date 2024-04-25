@@ -2,6 +2,7 @@
 ME3401 frequency response demonstration, run freq_resp.m to see the simulation
 
 Change your transfer function at Line 3 of transFunc.m
-`H = (1i*w+5)/(2i*w+5);`
 
-Change your input at line 10 - 13 of freq_resp.m
+Change your input at line 10 - 13 of main_freqResp.m
+
+The main file is main_freqResp.m, run this file for simulation
