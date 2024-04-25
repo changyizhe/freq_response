@@ -5,12 +5,25 @@ amplitude_out = [];
 phase_out = [];
 
 n = 1000;% specify the number of harmonics to simulate, the more the better in general
+%signal = 's'; %square
+signal = 't'; %triangle
 
-% type in your input signal, in Fourier Series
+%type in your input signal, in Fourier Series
+bias = pi/2;
 for i = 1:n
-    frequencies(i) = (2*i-1)/2*pi; 
-    amplitude(i) = 8/((2*i-1)*pi);
+    if signal == 's'
+        frequencies(i) = (2*i-1)/2*pi; 
+        amplitude(i) = 8/((2*i-1)*pi);
+    end
+    if signal == 't'
+        frequencies(i) = (2*i-1);
+        amplitude(i) = (-1)^(i-1)*8/(pi^2*(2*i-1)^2);
+    end
 end
+
+%process bias
+[mod, arg] = transFunc(0);
+bias_out = bias * mod;
 
 for i = 1:length(frequencies)
     w = frequencies(i); % Frequency
@@ -29,8 +42,8 @@ end
 %%plot the input and output 
 
 t = -20:0.1:20;
-x_in = zeros(size(t));
-y_out = zeros(size(t));
+x_in = ones(size(t))*bias;
+y_out = ones(size(t))*bias_out;
 
 for i = 1:length(frequencies)
     x_in = x_in + amplitude(i)*sin(frequencies(i)*t);
