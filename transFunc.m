@@ -1,6 +1,6 @@
 function [mod, arg] = transFunc(w)
     % Define your transfer function here, modify as you needed
-    H = (3i+5)/(4i+9);
+    H = 1/((1i*w)^2+0.05*1i*w+25);
     
     % Calculate the modulus and argument of the transfer function
 
