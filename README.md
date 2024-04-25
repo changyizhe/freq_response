@@ -1,5 +1,5 @@
 # freq_response
-ME3401 frequency response demonstration, run freq_resp.m to see the simulation
+ME3401 frequency response demonstration
 
 Change your transfer function at Line 3 of transFunc.m
 
